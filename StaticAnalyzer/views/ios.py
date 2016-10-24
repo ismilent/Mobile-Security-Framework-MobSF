@@ -416,7 +416,7 @@ def BinaryAnalysis(SRC, TOOLS_DIR, APP_DIR):
         try:
             print "[INFO] Reading Info.plist"
             XML = readBinXML(XML_FILE)
-            p = plistlib.readPlistFromString(XML)
+            p = plistlib.readPlistFromString(XML.encode('utf8'))
             BIN_NAME = BIN = ID = VER = SDK = PLTFM = MIN = ""
             if "CFBundleDisplayName" in p:
                 BIN_NAME = p["CFBundleDisplayName"]
